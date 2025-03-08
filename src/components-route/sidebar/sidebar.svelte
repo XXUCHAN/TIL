@@ -6,13 +6,13 @@
 		{ img: 'src/image/payout.png', text: 'Payout' },
 		{ img: 'src/image/inbox.png', text: 'Inbox' },
 		{ img: 'src/image/setting.png', text: 'Settings' },
-		{ img: 'src/image/check.png', text: 'TodoList' }
+		{ img: 'src/image/check.png', text: 'Todo' }
 	];
 </script>
 
 <div class="sidebar">
 	<div class="menu">
-		<div class="main-title"><strong>NEWBIE</strong></div>
+		<div class="main-title"><strong>Stamper</strong></div>
 		{#each menuItems as item}
 			<SideMenu {item} />
 		{/each}

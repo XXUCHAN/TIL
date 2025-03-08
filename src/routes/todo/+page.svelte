@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Postcard } from '../components/postcard/postcard';
-	import { Basic_User } from '../components/basic/basic_user/basic_user';
-	import { Basic } from '../components/basic/basic';
-	import {Basic_Ref} from '../components/basic/basic_ref/basic_ref';
+	import { Postcard } from '../../components/postcard/postcard';
+	import { Basic_User } from '../../components/basic/basic_user/basic_user';
+	import { Basic } from '../../components/basic/basic';
+	import {Basic_Ref} from '../../components/basic/basic_ref/basic_ref';
 
 	const top_contents = [
 		{
@@ -30,14 +30,7 @@
 			bgColor: 'rgb(173, 255, 178)'
 		}
 	];
-	const users_discusstion = [
-		{ name: 'lee', imgSrc: 'https://avatars.githubusercontent.com/u/141641630?v=4' },
-		{
-			name: 'daniel',
-			imgSrc:
-				'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTofiTkhCGQWTYpkk3-17Hs7xRUd6uXsmqsAQ&s'
-		}
-	];
+
 	const users_member = [
 		{
 			name: 'leo',
@@ -75,12 +68,12 @@
 
 	<div class="middle-contents-container">
 		<div class="middle-contents-1">
-			<Basic title="Users-Chart"></Basic>
+			<Basic title="Todo List"></Basic>
 		</div>
 
 		<div class="middle-contents-2">
-			<Basic title="Discusstion">
-				<Basic_User users={users_discusstion} />
+			<Basic title="Completed Task">
+
 			</Basic>
 		</div>
 	</div>
@@ -140,6 +133,7 @@
         height: 100%;
         border-radius: 10px;
         background-color: white;
+        overflow: scroll;
     }
     .bottom-contents-container {
         height: 28%;
@@ -151,7 +145,7 @@
     .bottom-contents-1 {
         width: 30%;
         height: 84%;
-				overflow: scroll;
+        overflow: scroll;
         border-radius: 10px;
         background-color: white;
     }
@@ -166,7 +160,7 @@
         border-radius: 10px;
         width: 23.5%;
         height: 84%;
-
+        overflow: scroll;
         background-color: white;
     }
 </style>

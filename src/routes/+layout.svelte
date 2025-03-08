@@ -14,9 +14,7 @@
 </div>
 
 <style>
-	:global(body) {
-		background-color: rgb(246, 246, 246);
-	}
+
 	.container {
 		display: flex;
 	}

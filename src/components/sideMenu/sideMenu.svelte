@@ -2,7 +2,7 @@
 	export let item;
 </script>
 
-<a href="/dashboard" class="menu-item">
+<a href={`/${item.text.toLowerCase()}`} class="menu-item">
 	<img class="menu-img" src={item.img} alt="Error" />
 	<p class="menu-text">{item.text}</p>
 </a>
