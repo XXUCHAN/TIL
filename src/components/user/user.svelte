@@ -4,20 +4,21 @@
 </script>
 
 <div class="user">
-	<img class="user-img" src="https://avatars.githubusercontent.com/u/141641630?v=4" alt="Error" />
+	<img class="img" src="https://avatars.githubusercontent.com/u/141641630?v=4" alt="Error" />
 	<p>{name}</p>
 </div>
 
-<style>
+<style lang="scss">
 	.user {
-		display: flex;
-		align-items: center;
-		gap: 0 10px;
-		padding-right: 30px;
+			display: flex;
+			align-items: center;
+			gap: 0 10px;
+			padding-right: 30px;
+      .img {
+          height: 40px;
+          width: 40px;
+          border-radius: 80%;
+      }
 	}
-	.user-img {
-		height: 40px;
-		width: 40px;
-		border-radius: 80%;
-	}
+
 </style>

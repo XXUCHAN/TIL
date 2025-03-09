@@ -19,24 +19,26 @@
 	</div>
 </div>
 
-<style>
+<style lang="scss">
 	.sidebar {
-		width: 12%;
-		height: 100vh;
-		background-color: white;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
+			width: 12%;
+			height: 100vh;
+			background-color: white;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+      .menu {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+      }
+      .main-title {
+          padding: 30px;
+          text-align: center;
+          color: blue;
+          font-weight: bold;
+      }
 	}
-	.menu {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-	}
-	.main-title {
-		padding: 30px;
-		text-align: center;
-		color: blue;
-		font-weight: bold;
-	}
+
+
 </style>

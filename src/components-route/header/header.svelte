@@ -7,7 +7,7 @@
 
 <div class="header">
 	<Search />
-	<div class="header-right">
+	<div class="info_container">
 		<div class="info">
 			{#each infoItems as infoItem}
 				<Info {infoItem} />
@@ -17,22 +17,23 @@
 	</div>
 </div>
 
-<style>
-	.header {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
-	.header-right {
-		display: flex;
-		align-items: center;
-		justify-content: right;
-		gap: 0 20px;
-	}
-	.info {
-		display: flex;
-		align-items: center;
-		justify-content: right;
-		gap: 0 20px;
-	}
+<style lang="scss">
+		.header {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+        .info_container {
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            gap: 0 20px;
+						.info {
+								display: flex;
+								align-items: center;
+								gap: 0 20px;
+						}
+        }
+		}
+
+
 </style>

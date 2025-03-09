@@ -8,12 +8,12 @@
 </div>
 
 <style lang="scss">
-  .basic-container {
-    margin: 20px;
-    font-weight: 700;
-    font-size: x-large;
-    .basic-title {
-      color: black;
-    }
-  }
+		.basic-container {
+				margin: 20px;
+				font-weight: 700;
+				font-size: x-large;
+				.basic-title {
+						color: black;
+				}
+		}
 </style>

@@ -74,11 +74,11 @@
 	</div>
 
 	<div class="middle-contents-container">
-		<div class="middle-contents-1">
+		<div class="Users-Chart">
 			<Basic title="Users-Chart"></Basic>
 		</div>
 
-		<div class="middle-contents-2">
+		<div class="Discusstion">
 			<Basic title="Discusstion">
 				<Basic_User users={users_discusstion} />
 			</Basic>
@@ -86,17 +86,17 @@
 	</div>
 
 	<div class="bottom-contents-container">
-		<div class="bottom-contents-1">
+		<div class="Referals">
 			<Basic title="Referals">
 				<Basic_Ref refs={referals} />
 			</Basic>
 		</div>
 
-		<div class="bottom-contents-2">
+		<div class="Viewers">
 			<Basic title="Viewers" />
 		</div>
 
-		<div class="bottom-contents-3">
+		<div class="Members">
 			<Basic title="Members">
 				<Basic_User users={users_member} />
 			</Basic>
@@ -104,12 +104,17 @@
 	</div>
 </div>
 
-<style>
+<style lang="scss">
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
     .contents {
         flex-grow: 1;
         height: 100%;
         margin: 2%;
+    }
+    .page-title {
+        display: flex;
+        justify-content: left;
+        padding-bottom: 1%;
     }
     .top-contents-container {
         display: flex;
@@ -118,56 +123,57 @@
         margin-bottom: 2%;
         gap: 0 2%;
     }
-    .page-title {
-        display: flex;
-        justify-content: left;
-        padding-bottom: 1%;
-    }
+
     .middle-contents-container {
         display: flex;
         height: 42%;
         justify-content: space-between;
         gap: 0 2%;
+        .Users-Chart {
+            width: 74.5%;
+            height: 100%;
+            border-radius: 10px;
+            background-color: white;
+        }
+        .Discusstion {
+            width: 23.5%;
+            height: 100%;
+            border-radius: 10px;
+            background-color: white;
+            overflow: scroll;
+        }
     }
-    .middle-contents-1 {
-        width: 74.5%;
-        height: 100%;
-        border-radius: 10px;
-        background-color: white;
-    }
-    .middle-contents-2 {
-        width: 23.5%;
-        height: 100%;
-        border-radius: 10px;
-        background-color: white;
-        overflow: scroll;
-    }
+
+
     .bottom-contents-container {
         height: 28%;
         display: flex;
         padding-top: 2%;
         justify-content: space-between;
         gap: 0 2%;
-    }
-    .bottom-contents-1 {
-        width: 30%;
-        height: 84%;
-        overflow: scroll;
-        border-radius: 10px;
-        background-color: white;
-    }
-    .bottom-contents-2 {
-        border-radius: 10px;
-        width: 42.5%;
-        height: 84%;
+        .Referals {
+            width: 30%;
+            height: 84%;
+            overflow: scroll;
+            border-radius: 10px;
+            background-color: white;
+        }
+        .Viewers {
+            border-radius: 10px;
+            width: 42.5%;
+            height: 84%;
 
-        background-color: white;
+            background-color: white;
+        }
+        .Members {
+            border-radius: 10px;
+            width: 23.5%;
+            height: 84%;
+            overflow: scroll;
+            background-color: white;
+        }
     }
-    .bottom-contents-3 {
-        border-radius: 10px;
-        width: 23.5%;
-        height: 84%;
-        overflow: scroll;
-        background-color: white;
-    }
+
+
+
 </style>
