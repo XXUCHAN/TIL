@@ -11,7 +11,7 @@
 	{/each}
 </div>
 
-<style>
+<style lang="scss">
     .sns {
         display: flex;
         justify-content: space-between;

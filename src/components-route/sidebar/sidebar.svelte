@@ -2,11 +2,11 @@
 	import { SideMenu } from '../../components/sideMenu/sideMenu';
 
 	const menuItems = [
-		{ img: 'src/image/dashboard.png', text: 'Dashboard' },
-		{ img: 'src/image/payout.png', text: 'Payout' },
-		{ img: 'src/image/inbox.png', text: 'Inbox' },
-		{ img: 'src/image/setting.png', text: 'Settings' },
-		{ img: 'src/image/check.png', text: 'Todo' }
+		{ img: '/image/dashboard.png', text: 'Dashboard' },
+		{ img: '/image/payout.png', text: 'Payout' },
+		{ img: '/image/inbox.png', text: 'Inbox' },
+		{ img: '/image/setting.png', text: 'Settings' },
+		{ img: '/image/check.png', text: 'Todo' }
 	];
 </script>
 

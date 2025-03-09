@@ -2,7 +2,7 @@
 	import { Info } from '../../components/info/info';
 	import { Search } from '../../components/search/search';
 	import { User } from '../../components/user/user';
-	const infoItems = [{ icon: 'src/image/alarm.png' }, { icon: 'src/image/flag.png' }];
+	const infoItems = [{ icon: '/image/alarm.png' }, { icon: '/image/flag.png' }];
 </script>
 
 <div class="header">

@@ -8,25 +8,25 @@
 		{
 			count: '154K',
 			label: 'Total Subscribers',
-			imgSrc: 'src/image/eye.png',
+			imgSrc: '/image/eye.png',
 			bgColor: 'blanchedalmond'
 		},
 		{
 			count: '145',
 			label: 'Total Points',
-			imgSrc: 'src/image/point.png',
+			imgSrc: '/image/point.png',
 			bgColor: 'rgb(161, 207, 255)'
 		},
 		{
 			count: '15',
 			label: 'Total Pages',
-			imgSrc: 'src/image/pages.png',
+			imgSrc: '/image/pages.png',
 			bgColor: 'rgb(244, 169, 169)'
 		},
 		{
 			count: '2654',
 			label: 'Total Paid',
-			imgSrc: 'src/image/paid.png',
+			imgSrc: '/image/paid.png',
 			bgColor: 'rgb(173, 255, 178)'
 		}
 	];
