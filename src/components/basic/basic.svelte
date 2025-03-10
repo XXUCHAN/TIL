@@ -22,6 +22,7 @@
 	}
 	@mixin contents-style($height: 90%, $width: 23.5%) {
 		border-radius: 10px;
+
 		height: $height;
 		width: $width;
 	}

@@ -4,16 +4,17 @@
 
 <div class="sns-list">
 	{#each refs as ref (ref.domain)}
-		<div class="sns">
+		<li class="sns">
 			<p>{ref.domain}</p>
 			<p>{ref.count}</p>
-		</div>
+		</li>
 	{/each}
 </div>
 
 <style lang="scss">
 	.sns-list {
 		height: inherit;
+		overflow: scroll;
 		.sns {
 			display: flex;
 			justify-content: space-between;
