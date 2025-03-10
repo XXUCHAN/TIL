@@ -21,24 +21,22 @@
 
 <style lang="scss">
 	.sidebar {
-			width: 12%;
-			height: 100vh;
-			background-color: white;
+		width: 12%;
+		height: 100vh;
+		background-color: white;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.menu {
+			width: 100%;
 			display: flex;
 			flex-direction: column;
-			align-items: center;
-      .menu {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-      }
-      .main-title {
-          padding: 30px;
-          text-align: center;
-          color: blue;
-          font-weight: bold;
-      }
+		}
+		.main-title {
+			padding: 30px;
+			text-align: center;
+			color: blue;
+			font-weight: bold;
+		}
 	}
-
-
 </style>

@@ -12,23 +12,23 @@
 </div>
 
 <style lang="scss">
-  .user-list {
-    width: 23.5%;
-    height: 100%;
-    border-radius: 10px;
-    background-color: white;
-    padding: 10px;
-    .user {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding-right: 30px;
-      font-size: medium;
-      .user-img {
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-      }
-    }
-  }
+	.user-list {
+		width: 23.5%;
+		height: 100%;
+		border-radius: 10px;
+		background-color: white;
+		padding: 10px;
+		.user {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			padding-right: 30px;
+			font-size: medium;
+			.user-img {
+				height: 30px;
+				width: 30px;
+				border-radius: 50%;
+			}
+		}
+	}
 </style>

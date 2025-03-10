@@ -2,7 +2,7 @@
 	import { Postcard } from '../components/postcard/postcard';
 	import { Basic_User } from '../components/basic/basic_user/basic_user';
 	import { Basic } from '../components/basic/basic';
-	import {Basic_Ref} from '../components/basic/basic_ref/basic_ref';
+	import { Basic_Ref } from '../components/basic/basic_ref/basic_ref';
 
 	const top_contents = [
 		{
@@ -75,7 +75,7 @@
 
 	<div class="middle-contents-container">
 		<div class="Users-Chart">
-			<Basic title="Users-Chart"></Basic>
+			<Basic title="Users-Chart" />
 		</div>
 
 		<div class="Discusstion">
@@ -105,75 +105,59 @@
 </div>
 
 <style lang="scss">
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-  .contents {
-    flex-grow: 1;
-    height: 100%;
-    margin: 2%;
-  }
-  .page-title {
-    display: flex;
-    justify-content: left;
-    padding-bottom: 1%;
-  }
-  .top-contents-container {
-    display: flex;
-    justify-items: space-between;
-    height: 14%;
-    margin-bottom: 2%;
-    gap: 0 2%;
-  }
+	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+	@mixin contents-style($height: 100%, $width: 23.5%) {
+		border-radius: 10px;
+		height: $height;
+		width: $width;
+		overflow: scroll;
+		background-color: white;
+	}
+	.contents {
+		flex-grow: 1;
+		height: 100%;
+		margin: 2%;
+	}
+	.page-title {
+		display: flex;
+		justify-content: left;
+		padding-bottom: 1%;
+	}
+	.top-contents-container {
+		display: flex;
+		justify-items: space-between;
+		height: 14%;
+		margin-bottom: 2%;
+		gap: 2%;
+	}
 
-  .middle-contents-container {
-    display: flex;
-    height: 42%;
-    justify-content: space-between;
-    gap: 0 2%;
-    .Users-Chart {
-      width: 74.5%;
-      height: 100%;
-      border-radius: 10px;
-      background-color: white;
-    }
-    .Discusstion {
-      width: 23.5%;
-      height: 100%;
-      border-radius: 10px;
-      background-color: white;
-      overflow: scroll;
-    }
-  }
+	.middle-contents-container {
+		display: flex;
+		height: 42%;
+		justify-content: space-between;
+		gap: 2%;
+		.Users-Chart {
+			@include contents-style($width: 74.5%);
+		}
+		.Discusstion {
+			@include contents-style();
+		}
+	}
 
-
-  .bottom-contents-container {
-    height: 28%;
-    display: flex;
-    padding-top: 2%;
-    justify-content: space-between;
-    gap: 0 2%;
-    .Referals {
-      width: 30%;
-      height: 84%;
-      overflow: scroll;
-      border-radius: 10px;
-      background-color: white;
-    }
-    .Viewers {
-      border-radius: 10px;
-      width: 42.5%;
-      height: 84%;
-
-      background-color: white;
-    }
-    .Members {
-      border-radius: 10px;
-      width: 23.5%;
-      height: 84%;
-      overflow: scroll;
-      background-color: white;
-    }
-  }
-
-
-
+	.bottom-contents-container {
+		height: 28%;
+		display: flex;
+		padding-top: 2%;
+		justify-content: space-between;
+		gap: 0 2%;
+		.Referals {
+			@include contents-style($height: 84%, $width: 30%);
+		}
+		.Viewers {
+			@include contents-style($height: 84%, $width: 42.5%);
+		}
+		.Members {
+			@include contents-style($height: 84%);
+		}
+	}
 </style>

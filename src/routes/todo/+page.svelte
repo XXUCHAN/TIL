@@ -53,6 +53,12 @@
 	let editId: number | null;
 	let todos = writable<{ id: number; text: string }[]>([]);
 	let completedTodos = writable<{ id: number; text: string }[]>([]);
+
+	function dateFormater(id: number) {
+		const date = new Date(id);
+		return date.toLocaleString(); // 날짜 및 시간 형식으로 변환
+	}
+
 	onMount(() => {
 		const savedTodos = JSON.parse(localStorage.getItem('todos') || '[]');
 		const savedCompletedTodos = JSON.parse(localStorage.getItem('completedTodos') || '[]');
@@ -72,28 +78,30 @@
 
 	function deleteTodo(id: number) {
 		const newTodo = JSON.parse(localStorage.getItem('todos') || '[]').filter(
-			(todo) => todo.id !== id
+			(todo: { id: number }) => todo.id !== id
 		);
 		localStorage.setItem('todos', JSON.stringify(newTodo));
 		todos.set(newTodo);
 	}
 	function deleteCompletedTodo(id: number) {
 		const newTodo = JSON.parse(localStorage.getItem('completedTodos') || '[]').filter(
-			(todo) => todo.id !== id
+			(todo: { id: number }) => todo.id !== id
 		);
 		localStorage.setItem('completedTodos', JSON.stringify(newTodo));
 		completedTodos.set(newTodo);
 	}
 	function editTodo(id: number) {
 		editId = id;
-		const todo = JSON.parse(localStorage.getItem('todos') || '[]').find((todo) => todo.id == id);
+		const todo = JSON.parse(localStorage.getItem('todos') || '[]').find(
+			(todo: { id: number }) => todo.id == id
+		);
 		editValue = todo.text;
 	}
 
 	function saveEdit(event: KeyboardEvent) {
 		if (event.key === 'Enter') {
-			const newTodo = JSON.parse(localStorage.getItem('todos') || '[]').map((todo) =>
-				todo.id === editId ? { ...todo, text: editValue } : todo
+			const newTodo = JSON.parse(localStorage.getItem('todos') || '[]').map(
+				(todo: { id: number | null }) => (todo.id === editId ? { ...todo, text: editValue } : todo)
 			);
 			localStorage.setItem('todos', JSON.stringify(newTodo));
 			todos.set(newTodo);
@@ -102,7 +110,9 @@
 		}
 	}
 	function completedTodo(id: number) {
-		const newTodo = JSON.parse(localStorage.getItem('todos') || '[]').find((todo) => todo.id == id);
+		const newTodo = JSON.parse(localStorage.getItem('todos') || '[]').find(
+			(todo: { id: number }) => todo.id == id
+		);
 		const savedCompletedTodo = JSON.parse(localStorage.getItem('completedTodos') || '[]');
 		savedCompletedTodo.push(newTodo);
 		localStorage.setItem('completedTodos', JSON.stringify(savedCompletedTodo));
@@ -155,7 +165,7 @@
 			<Basic title="Completed Task">
 				{#each $completedTodos as todo}
 					<li class="todos">
-						{todo.text}
+						{todo.text}<span class="datetime">{dateFormater(todo.id)}</span>
 						<button on:click={() => deleteCompletedTodo(todo.id)}>삭제</button>
 					</li>
 				{/each}
@@ -218,15 +228,18 @@
 		padding-bottom: 1%;
 	}
 	.middle-contents-container {
+		@mixin contents-style {
+			flex: 1;
+			border-radius: 10px;
+			background-color: white;
+			overflow: scroll;
+		}
 		display: flex;
 		height: 42%;
 		justify-content: space-between;
 		gap: 0 2%;
 		.Todo_List {
-			flex: 1;
-			border-radius: 10px;
-			background-color: white;
-			overflow: scroll;
+			@include contents-style();
 			.todos {
 				@include todo-style;
 			}
@@ -240,12 +253,13 @@
 			}
 		}
 		.Completed_Task {
-			flex: 1;
-			border-radius: 10px;
-			background-color: white;
-			overflow: scroll;
+			@include contents-style();
 			.todos {
 				@include todo-style;
+				text-decoration: line-through;
+				.datetime {
+					padding-left: 30px;
+				}
 			}
 			button {
 				@include button-style;
@@ -254,30 +268,26 @@
 	}
 
 	.bottom-contents-container {
+		@mixin contents-style($width: 23.5%) {
+			border-radius: 10px;
+			height: 84%;
+			width: $width;
+			overflow: scroll;
+			background-color: white;
+		}
 		height: 28%;
 		display: flex;
 		padding-top: 2%;
 		justify-content: space-between;
-		gap: 0 2%;
+		gap: 2%;
 		.Referals {
-			width: 30%;
-			height: 84%;
-			overflow: scroll;
-			border-radius: 10px;
-			background-color: white;
+			@include contents-style($width: 30%);
 		}
 		.Viewers {
-			border-radius: 10px;
-			width: 42.5%;
-			height: 84%;
-			background-color: white;
+			@include contents-style($width: 42.5%);
 		}
 		.Members {
-			border-radius: 10px;
-			width: 23.5%;
-			height: 84%;
-			overflow: scroll;
-			background-color: white;
+			@include contents-style();
 		}
 	}
 </style>

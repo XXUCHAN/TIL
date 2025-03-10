@@ -18,22 +18,20 @@
 </div>
 
 <style lang="scss">
-		.header {
+	.header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		.info_container {
+			display: flex;
+			align-items: center;
+			justify-content: right;
+			gap: 0 20px;
+			.info {
 				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-        .info_container {
-            display: flex;
-            align-items: center;
-            justify-content: right;
-            gap: 0 20px;
-						.info {
-								display: flex;
-								align-items: center;
-								gap: 0 20px;
-						}
-        }
+				align-items: center;
+				gap: 0 20px;
+			}
 		}
-
-
+	}
 </style>

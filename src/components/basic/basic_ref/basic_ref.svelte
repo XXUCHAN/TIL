@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let refs: {domain: string; count: string }[];
+	export let refs: { domain: string; count: string }[];
 </script>
 
 <div class="sns-list">
@@ -12,10 +12,10 @@
 </div>
 
 <style lang="scss">
-    .sns {
-        display: flex;
-        justify-content: space-between;
-				font-size: medium;
-				overflow: scroll;
-    }
+	.sns {
+		display: flex;
+		justify-content: space-between;
+		font-size: medium;
+		overflow: scroll;
+	}
 </style>

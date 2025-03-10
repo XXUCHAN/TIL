@@ -10,15 +10,14 @@
 
 <style lang="scss">
 	.user {
-			display: flex;
-			align-items: center;
-			gap: 0 10px;
-			padding-right: 30px;
-      .img {
-          height: 40px;
-          width: 40px;
-          border-radius: 80%;
-      }
+		display: flex;
+		align-items: center;
+		gap: 0 10px;
+		padding-right: 30px;
+		.img {
+			height: 40px;
+			width: 40px;
+			border-radius: 80%;
+		}
 	}
-
 </style>
