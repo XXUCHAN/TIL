@@ -74,54 +74,85 @@
 	</div>
 
 	<div class="middle-contents-container">
-		<Basic title="Users-Chart" className="Users-Chart" />
+		<div class="Users-Chart">
+			<Basic title="Users-Chart" />
+		</div>
+		<div class="Discussion">
+			<Basic title="Discussion">
+				<Basic_User users={users_discusstion} />
+			</Basic>
+		</div>
 
-		<Basic title="Discusstion" className="Discussion">
-			<Basic_User users={users_discusstion} />
-		</Basic>
 	</div>
 
 	<div class="bottom-contents-container">
-		<Basic title="Referals" className="Referals">
-			<Basic_Ref refs={referals} />
-		</Basic>
+		<div class="Referals">
+			<Basic title="Referals">
+				<Basic_Ref refs={referals} />
+			</Basic>
+		</div>
 
-		<Basic title="Viewers" className="Viewers" />
+		<div class="Viewers">
+			<Basic title="Viewers" />
+		</div>
 
-		<Basic title="Members" className="Members">
-			<Basic_User users={users_member} />
-		</Basic>
+		<div class="Members">
+			<Basic title="Members">
+				<Basic_User users={users_member} />
+			</Basic>
+		</div>
+
 	</div>
 </div>
 
 <style lang="scss">
-	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-	@mixin contents-container($height: 42%) {
-		display: flex;
-		justify-items: space-between;
-		height: $height;
-		margin-bottom: 2%;
-		gap: 0 2%;
-	}
-	.contents {
-		flex-grow: 1;
-		height: 100%;
-		margin: 2%;
-	}
-	.page-title {
-		display: flex;
-		justify-content: left;
-		padding-bottom: 1%;
-	}
-	.top-contents-container {
-		@include contents-container($height: 14%);
-	}
+  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+  @mixin contents-container($height: 42%) {
+    display: flex;
+    height: $height;
+    margin-bottom: 2%;
+    gap: 0 2%;
+  }
+  @mixin contents-style($height: 90%, $width: 23.5%) {
+    border-radius: 10px;
+    height: $height;
+    width: $width;
+  }
 
-	.middle-contents-container {
-		@include contents-container();
-	}
+  .Users-Chart {
+    @include contents-style($width: 80%);
+  }
+  .Discussion {
+    @include contents-style();
+  }
+  .Referals {
+    @include contents-style($height: 60%, $width: 30%);
+  }
+  .Viewers {
+    @include contents-style($height: 60%, $width: 42.5%);
+  }
+  .Members {
+    @include contents-style($height: 60%);
+  }
+  .contents {
+    flex-grow: 1;
+    height: 100%;
+    margin: 2%;
+  }
+  .page-title {
+    display: flex;
+    justify-content: left;
+    padding-bottom: 1%;
+  }
+  .top-contents-container {
+    @include contents-container($height: 14%);
+  }
 
-	.bottom-contents-container {
-		@include contents-container($height: 28%);
-	}
+  .middle-contents-container {
+    @include contents-container();
+  }
+
+  .bottom-contents-container {
+    @include contents-container($height: 28%);
+  }
 </style>

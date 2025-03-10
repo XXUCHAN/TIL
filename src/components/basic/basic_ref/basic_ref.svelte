@@ -13,7 +13,7 @@
 
 <style lang="scss">
 	.sns-list {
-		height: inherit;
+		height: 70%;
 		overflow: scroll;
 		.sns {
 			display: flex;

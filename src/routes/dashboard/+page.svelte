@@ -94,22 +94,32 @@
 	<div class="middle-contents-container">
 		<div class="Users-Chart">
 			<Basic title="Users-Chart" />
-			<Basic title="Discusstion" className="Discussion">
+		</div>
+		<div class="Discussion">
+			<Basic title="Discussion">
 				<Basic_User users={users_discusstion} />
 			</Basic>
 		</div>
+
 	</div>
 
 	<div class="bottom-contents-container">
-		<Basic title="Referals" className="Referals">
-			<Basic_Ref refs={referals} />
-		</Basic>
+		<div class="Referals">
+			<Basic title="Referals">
+				<Basic_Ref refs={referals} />
+			</Basic>
+		</div>
 
-		<Basic title="Viewers" className="Viewers" />
+		<div class="Viewers">
+			<Basic title="Viewers" />
+		</div>
 
-		<Basic title="Members" className="Members">
-			<Basic_User users={users_member} />
-		</Basic>
+		<div class="Members">
+			<Basic title="Members">
+				<Basic_User users={users_member} />
+			</Basic>
+		</div>
+
 	</div>
 </div>
 
@@ -130,6 +140,18 @@
 	.Users-Chart {
 		@include contents-style($width: 80%);
 	}
+  .Discussion {
+    @include contents-style();
+  }
+  .Referals {
+    @include contents-style($height: 60%, $width: 30%);
+  }
+  .Viewers {
+    @include contents-style($height: 60%, $width: 42.5%);
+  }
+  .Members {
+    @include contents-style($height: 60%);
+  }
 	.contents {
 		flex-grow: 1;
 		height: 100%;

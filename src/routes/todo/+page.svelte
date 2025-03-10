@@ -3,6 +3,7 @@
 	import { Basic_User } from '../../components/basic/basic_user/basic_user';
 	import { Basic } from '../../components/basic/basic';
 	import { Basic_Ref } from '../../components/basic/basic_ref/basic_ref';
+	import { Input } from '../../components/input/input';
 	import { onMount } from 'svelte';
 	import { writable } from 'svelte/store';
 	const top_contents = [
@@ -138,51 +139,63 @@
 	</div>
 
 	<div class="middle-contents-container">
-		<Basic title="Todo List" className="Todo_List">
-			<input
-				type="text"
-				bind:value={addValue}
-				placeholder="할 일을 입력하세요"
-				on:keydown={(evt) => console.log(evt)}
-			/>
-			<button on:click={() => addTodo(addValue)}>추가</button>
-			{#each $todos as todo}
-				<li class="todos">
-					{#if editId === todo.id}
-						<input
-							type="text"
-							bind:value={editValue}
-							placeholder="수정할 내용을 입력하세요"
-							on:keydown={saveEdit}
-						/>
-					{:else}
-						{todo.text}
-						<button on:click={() => editTodo(todo.id)}>수정</button>
-						<button on:click={() => deleteTodo(todo.id)}>삭제</button>
-						<button on:click={() => completedTodo(todo.id)}>완료</button>
-					{/if}
-				</li>
-			{/each}
-		</Basic>
+		<div class="Todo_List">
+			<Basic title="Todo List">
+				<input
+					type="text"
+					bind:value={addValue}
+					placeholder="할 일을 입력하세요"
+					on:keydown={(evt) => console.log(evt)}
+				/>
+				<button on:click={() => addTodo(addValue)}>추가</button>
+				{#each $todos as todo}
+					<li class="todos">
+						{#if editId === todo.id}
+							<input
+								type="text"
+								bind:value={editValue}
+								placeholder="수정할 내용을 입력하세요"
+								on:keydown={saveEdit}
+							/>
+						{:else}
+							{todo.text}
+							<button on:click={() => editTodo(todo.id)}>수정</button>
+							<button on:click={() => deleteTodo(todo.id)}>삭제</button>
+							<button on:click={() => completedTodo(todo.id)}>완료</button>
+						{/if}
+					</li>
+				{/each}
+			</Basic>
+		</div>
 
-		<Basic title="Completed Task" className="Completed_Task">
-			{#each $completedTodos as todo}
-				<li class="completedTodos">
-					{todo.text}<span class="datetime">{dateFormater(todo.id)}</span>
-					<button on:click={() => deleteCompletedTodo(todo.id)}>삭제</button>
-				</li>
-			{/each}
-		</Basic>
+		<div class="Completed_Task">
+			<Basic title="Completed Task">
+				{#each $completedTodos as todo}
+					<li class="completedTodos">
+						{todo.text}<span class="datetime">{dateFormater(todo.id)}</span>
+						<button on:click={() => deleteCompletedTodo(todo.id)}>삭제</button>
+					</li>
+				{/each}
+			</Basic>
+		</div>
+
 	</div>
 
 	<div class="bottom-contents-container">
-		<Basic title="Referals" className="Referals">
-			<Basic_Ref refs={referals} />
-		</Basic>
-		<Basic title="Viewers" className="Viewers" />
-		<Basic title="Members" className="Members">
-			<Basic_User users={users_member} />
-		</Basic>
+		<div class="Referals">
+			<Basic title="Referals">
+				<Basic_Ref refs={referals} />
+			</Basic>
+		</div>
+		<div class="Viewers">
+			<Basic title="Viewers"/>
+		</div>
+		<div class="Members">
+			<Basic title="Members">
+				<Basic_User users={users_member} />
+			</Basic>
+		</div>
+
 	</div>
 </div>
 
@@ -190,11 +203,54 @@
 	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 	@mixin contents-container($height: 42%) {
 		display: flex;
-		justify-items: space-between;
+		justify-content: space-between;
 		height: $height;
 		margin-bottom: 2%;
 		gap: 0 2%;
 	}
+  @mixin contents-style($height: 90%, $width: 23.5%) {
+    border-radius: 10px;
+    height: $height;
+    width: $width;
+  }
+  @mixin button-style {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    background-color: #0056b3;
+    color: white;
+    border-radius: 5px;
+    &:hover {
+      background-color: #0056b3;
+    }
+    @media (max-width: 880px) {
+      cursor: pointer;
+      font-size: small;
+      padding: 1px 2px;
+      border: none;
+      background-color: #0056b3;
+      color: white;
+      border-radius: 5px;
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+  @mixin todo-style {
+    font-size: medium;
+    padding: 5px;
+  }
+  @mixin mid-contents-style {
+    flex: 1;
+    overflow: scroll;
+    border-radius: 10px;
+  }
+  .Completed_Task {
+    @include mid-contents-style();
+    button{
+      @include button-style;
+    }
+  }
 	.contents {
 		flex-grow: 1;
 		height: 100%;
@@ -214,6 +270,24 @@
 	.bottom-contents-container {
 		@include contents-container($height: 28%);
 	}
+  .Todo_List {
+    @include mid-contents-style();
+    input{
+      margin: 10px;
+      padding: 5px;
+      width: 70%;
+    }
+    button{
+      @include button-style;
+    }
+    @media (max-width: 880px) {
+      input{
+        margin: 5px;
+        padding: 0px;
+        width: 70%;
+      }
+    }
+  }
 	.completedTodos {
 		text-decoration: line-through;
 		.datetime {
@@ -235,4 +309,13 @@
 			display: flex;
 		}
 	}
+  .Referals {
+    @include contents-style($height: 60%, $width: 30%);
+  }
+  .Viewers {
+    @include contents-style($height: 60%, $width: 42.5%);
+  }
+  .Members {
+    @include contents-style($height: 60%);
+  }
 </style>

@@ -14,15 +14,14 @@
 <style lang="scss">
 	.user-list {
 		width: 100%;
-		height: inherit;
+		height: 80%;
 		overflow: scroll;
 		border-radius: 10px;
 		background-color: white;
-		padding: 10px;
 		.user {
 			display: flex;
 			align-items: center;
-			gap: 10px;
+			gap: 5px;
 			padding-right: 30px;
 			font-size: medium;
 			.user-img {
