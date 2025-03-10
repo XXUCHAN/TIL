@@ -1,8 +1,8 @@
 <script lang="ts">
 	import Input from '../input/input.svelte';
 	function handler(value: string) {
-		const searchValue = { id: Date.now(), text: value.detail };
-		localStorage.setItem('search', JSON.stringify(searchValue));
+		const inputValue = { id: Date.now(), text: value.detail };
+		localStorage.setItem('search', JSON.stringify(inputValue));
 		console.log(value.detail);
 	}
 </script>

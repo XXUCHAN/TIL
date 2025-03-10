@@ -12,9 +12,11 @@
 	type="text"
 	placeholder={placeholderText}
 	on:keydown={(event) => {
+		console.log(event);
 		if (event.key === 'Enter') {
 			save(event.target.value);
 			//console.log(event.target.value);
+
 		}
 	}}
 />

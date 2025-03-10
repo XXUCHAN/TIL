@@ -67,6 +67,16 @@
 		completedTodos.set(savedCompletedTodos);
 	});
 
+	function handler(value: string) {
+		const inputValue = { id: Date.now(), text: value.detail };
+		const savedTodos = JSON.parse(localStorage.getItem('todos') || '[]');
+		savedTodos.push(inputValue);
+		localStorage.setItem('todos', JSON.stringify(savedTodos));
+		todos.set(savedTodos);
+		addValue = '';
+		console.log(value.detail);
+	}
+	/*
 	function addTodo(text: string) {
 		if (!text.trim()) return;
 		const newTodo = { id: Date.now(), text };
@@ -75,7 +85,7 @@
 		localStorage.setItem('todos', JSON.stringify(savedTodos));
 		todos.set(savedTodos);
 		addValue = '';
-	}
+	} */
 
 	function deleteTodo(id: number) {
 		const newTodo = JSON.parse(localStorage.getItem('todos') || '[]').filter(
@@ -141,13 +151,18 @@
 	<div class="middle-contents-container">
 		<div class="Todo_List">
 			<Basic title="Todo List">
-				<input
+				<!-- <input
 					type="text"
 					bind:value={addValue}
 					placeholder="할 일을 입력하세요"
 					on:keydown={(evt) => console.log(evt)}
-				/>
+				/> -->
+				<div class="todo-input">
+					<Input placeholderText="할 일을 입력하세요" on:save={handler} />
+				</div>
+				<!--
 				<button on:click={() => addTodo(addValue)}>추가</button>
+				-->
 				{#each $todos as todo}
 					<li class="todos">
 						{#if editId === todo.id}
@@ -245,34 +260,31 @@
     overflow: scroll;
     border-radius: 10px;
   }
-  .Completed_Task {
-    @include mid-contents-style();
-    button{
-      @include button-style;
-    }
+  .contents {
+    flex-grow: 1;
+    height: 100%;
+    margin: 2%;
   }
-	.contents {
-		flex-grow: 1;
-		height: 100%;
-		margin: 2%;
-	}
+
+
 	.top-contents-container {
 		@include contents-container($height: 14%);
 	}
+  .middle-contents-container {
+    @include contents-container($height: 42%);
+  }
+  .bottom-contents-container {
+    @include contents-container($height: 28%);
+  }
 	.page-title {
 		display: flex;
 		justify-content: left;
 		padding-bottom: 1%;
 	}
-	.middle-contents-container {
-		@include contents-container($height: 42%);
-	}
-	.bottom-contents-container {
-		@include contents-container($height: 28%);
-	}
+
   .Todo_List {
     @include mid-contents-style();
-    input{
+    .todo-input{
       margin: 10px;
       padding: 5px;
       width: 70%;
@@ -302,6 +314,12 @@
 			}
 		}
 	}
+  .Completed_Task {
+    @include mid-contents-style();
+    button{
+      @include button-style;
+    }
+  }
 	.todos {
 		margin: 10px;
 		@media (max-width: 880px) {
