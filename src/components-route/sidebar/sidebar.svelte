@@ -20,7 +20,7 @@
 </div>
 
 <style lang="scss">
-	.sidebar {
+	@mixin side {
 		width: 12%;
 		height: 100vh;
 		background-color: white;
@@ -32,29 +32,22 @@
 			display: flex;
 			flex-direction: column;
 		}
+	}
+
+	.sidebar {
 		.main-title {
 			padding: 30px;
-
 			color: blue;
 			font-weight: bold;
 		}
+		@include side();
 	}
 	@media (max-width: 855px) {
 		.sidebar {
-			width: 12%;
-			height: 100vh;
-			background-color: white;
-			display: flex;
-			flex-direction: column;
-
-			.menu {
-				width: 100%;
-				display: flex;
-				flex-direction: column;
-			}
 			.main-title {
 				visibility: hidden;
 			}
+			@include side();
 		}
 	}
 </style>

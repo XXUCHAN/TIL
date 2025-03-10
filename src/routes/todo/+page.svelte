@@ -56,7 +56,7 @@
 
 	function dateFormater(id: number) {
 		const date = new Date(id);
-		return date.toLocaleString(); // 날짜 및 시간 형식으로 변환
+		return date.toLocaleString();
 	}
 
 	onMount(() => {
@@ -139,7 +139,12 @@
 
 	<div class="middle-contents-container">
 		<Basic title="Todo List" className="Todo_List">
-			<input type="text" bind:value={addValue} placeholder="할 일을 입력하세요" />
+			<input
+				type="text"
+				bind:value={addValue}
+				placeholder="할 일을 입력하세요"
+				on:keydown={(evt) => console.log(evt)}
+			/>
 			<button on:click={() => addTodo(addValue)}>추가</button>
 			{#each $todos as todo}
 				<li class="todos">
@@ -183,18 +188,20 @@
 
 <style lang="scss">
 	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-
+	@mixin contents-container($height: 42%) {
+		display: flex;
+		justify-items: space-between;
+		height: $height;
+		margin-bottom: 2%;
+		gap: 0 2%;
+	}
 	.contents {
 		flex-grow: 1;
 		height: 100%;
 		margin: 2%;
 	}
 	.top-contents-container {
-		display: flex;
-		justify-items: space-between;
-		height: 14%;
-		margin-bottom: 2%;
-		gap: 0 2%;
+		@include contents-container($height: 14%);
 	}
 	.page-title {
 		display: flex;
@@ -202,18 +209,10 @@
 		padding-bottom: 1%;
 	}
 	.middle-contents-container {
-		display: flex;
-		height: 42%;
-		justify-content: space-between;
-		gap: 0 2%;
+		@include contents-container($height: 42%);
 	}
-
 	.bottom-contents-container {
-		height: 28%;
-		display: flex;
-		padding-top: 2%;
-		justify-content: space-between;
-		gap: 2%;
+		@include contents-container($height: 28%);
 	}
 	.completedTodos {
 		text-decoration: line-through;

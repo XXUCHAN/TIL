@@ -92,11 +92,12 @@
 	</div>
 
 	<div class="middle-contents-container">
-		<Basic title="Users-Chart" className="Users-Chart" />
-
-		<Basic title="Discusstion" className="Discussion">
-			<Basic_User users={users_discusstion} />
-		</Basic>
+		<div class="Users-Chart">
+			<Basic title="Users-Chart" />
+			<Basic title="Discusstion" className="Discussion">
+				<Basic_User users={users_discusstion} />
+			</Basic>
+		</div>
 	</div>
 
 	<div class="bottom-contents-container">
@@ -114,7 +115,21 @@
 
 <style lang="scss">
 	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-
+	@mixin contents-container($height: 42%) {
+		display: flex;
+		justify-items: space-between;
+		height: $height;
+		margin-bottom: 2%;
+		gap: 0 2%;
+	}
+	@mixin contents-style($height: 90%, $width: 23.5%) {
+		border-radius: 10px;
+		height: $height;
+		width: $width;
+	}
+	.Users-Chart {
+		@include contents-style($width: 80%);
+	}
 	.contents {
 		flex-grow: 1;
 		height: 100%;
@@ -126,25 +141,14 @@
 		padding-bottom: 1%;
 	}
 	.top-contents-container {
-		display: flex;
-		justify-items: space-between;
-		height: 14%;
-		margin-bottom: 2%;
-		gap: 0 2%;
+		@include contents-container($height: 14%);
 	}
 
 	.middle-contents-container {
-		display: flex;
-		height: 42%;
-		justify-content: space-between;
-		gap: 0 2%;
+		@include contents-container();
 	}
 
 	.bottom-contents-container {
-		height: 28%;
-		display: flex;
-		padding-top: 2%;
-		justify-content: space-between;
-		gap: 0 2%;
+		@include contents-container($height: 28%);
 	}
 </style>

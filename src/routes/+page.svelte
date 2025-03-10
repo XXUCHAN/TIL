@@ -96,7 +96,13 @@
 
 <style lang="scss">
 	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-
+	@mixin contents-container($height: 42%) {
+		display: flex;
+		justify-items: space-between;
+		height: $height;
+		margin-bottom: 2%;
+		gap: 0 2%;
+	}
 	.contents {
 		flex-grow: 1;
 		height: 100%;
@@ -108,25 +114,14 @@
 		padding-bottom: 1%;
 	}
 	.top-contents-container {
-		display: flex;
-		justify-items: space-between;
-		height: 14%;
-		margin-bottom: 2%;
-		gap: 0 2%;
+		@include contents-container($height: 14%);
 	}
 
 	.middle-contents-container {
-		display: flex;
-		height: 42%;
-		justify-content: space-between;
-		gap: 0 2%;
+		@include contents-container();
 	}
 
 	.bottom-contents-container {
-		height: 28%;
-		display: flex;
-		padding-top: 2%;
-		justify-content: space-between;
-		gap: 0 2%;
+		@include contents-container($height: 28%);
 	}
 </style>

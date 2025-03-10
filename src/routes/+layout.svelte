@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Header from '../components-route/header/header.svelte';
 	import Sidebar from '../components-route/sidebar/sidebar.svelte';
-	//import Dashboard from '../components/dashboard/dashboard.svelte';
 </script>
 
 <div class="container">
@@ -9,12 +8,10 @@
 	<div class="dashboard">
 		<Header />
 		<slot />
-		<!--<Dashboard />-->
 	</div>
 </div>
 
 <style>
-
 	.container {
 		display: flex;
 	}

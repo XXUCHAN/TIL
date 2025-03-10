@@ -14,7 +14,7 @@
 </div>
 
 <style lang="scss">
-	.postcard {
+	@mixin card {
 		height: 100%;
 		width: 23.5%;
 		display: flex;
@@ -32,35 +32,22 @@
 				font-size: small;
 			}
 		}
+	}
+	.postcard {
 		.img {
 			width: 50px;
 			height: 50px;
 			border-radius: 100%;
 			margin: 10%;
 		}
+		@include card();
 	}
 	@media (max-width: 810px) {
 		.postcard {
-			height: 100%;
-			width: 23.5%;
-			display: flex;
-			border-radius: 10px;
-			background-color: white;
-			justify-content: space-between;
-			align-items: center;
-			box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-			.text {
-				padding-left: 15px;
-				.count {
-					font-size: xx-large;
-				}
-				.label {
-					font-size: small;
-				}
-			}
 			.img {
 				visibility: hidden;
 			}
+			@include card();
 		}
 	}
 </style>
