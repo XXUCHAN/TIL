@@ -74,45 +74,29 @@
 	</div>
 
 	<div class="middle-contents-container">
-		<div class="Users-Chart">
-			<Basic title="Users-Chart" />
-		</div>
+		<Basic title="Users-Chart" className="Users-Chart" />
 
-		<div class="Discusstion">
-			<Basic title="Discusstion">
-				<Basic_User users={users_discusstion} />
-			</Basic>
-		</div>
+		<Basic title="Discusstion" className="Discussion">
+			<Basic_User users={users_discusstion} />
+		</Basic>
 	</div>
 
 	<div class="bottom-contents-container">
-		<div class="Referals">
-			<Basic title="Referals">
-				<Basic_Ref refs={referals} />
-			</Basic>
-		</div>
+		<Basic title="Referals" className="Referals">
+			<Basic_Ref refs={referals} />
+		</Basic>
 
-		<div class="Viewers">
-			<Basic title="Viewers" />
-		</div>
+		<Basic title="Viewers" className="Viewers" />
 
-		<div class="Members">
-			<Basic title="Members">
-				<Basic_User users={users_member} />
-			</Basic>
-		</div>
+		<Basic title="Members" className="Members">
+			<Basic_User users={users_member} />
+		</Basic>
 	</div>
 </div>
 
 <style lang="scss">
 	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-	@mixin contents-style($height: 100%, $width: 23.5%) {
-		border-radius: 10px;
-		height: $height;
-		width: $width;
-		overflow: scroll;
-		background-color: white;
-	}
+
 	.contents {
 		flex-grow: 1;
 		height: 100%;
@@ -128,20 +112,14 @@
 		justify-items: space-between;
 		height: 14%;
 		margin-bottom: 2%;
-		gap: 2%;
+		gap: 0 2%;
 	}
 
 	.middle-contents-container {
 		display: flex;
 		height: 42%;
 		justify-content: space-between;
-		gap: 2%;
-		.Users-Chart {
-			@include contents-style($width: 74.5%);
-		}
-		.Discusstion {
-			@include contents-style();
-		}
+		gap: 0 2%;
 	}
 
 	.bottom-contents-container {
@@ -150,14 +128,5 @@
 		padding-top: 2%;
 		justify-content: space-between;
 		gap: 0 2%;
-		.Referals {
-			@include contents-style($height: 84%, $width: 30%);
-		}
-		.Viewers {
-			@include contents-style($height: 84%, $width: 42.5%);
-		}
-		.Members {
-			@include contents-style($height: 84%);
-		}
 	}
 </style>

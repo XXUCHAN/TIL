@@ -138,8 +138,7 @@
 	</div>
 
 	<div class="middle-contents-container">
-		<div class="Todo_List">
-			<Basic title="Todo List" />
+		<Basic title="Todo List" className="Todo_List">
 			<input type="text" bind:value={addValue} placeholder="할 일을 입력하세요" />
 			<button on:click={() => addTodo(addValue)}>추가</button>
 			{#each $todos as todo}
@@ -159,57 +158,32 @@
 					{/if}
 				</li>
 			{/each}
-		</div>
+		</Basic>
 
-		<div class="Completed_Task">
-			<Basic title="Completed Task">
-				{#each $completedTodos as todo}
-					<li class="todos">
-						{todo.text}<span class="datetime">{dateFormater(todo.id)}</span>
-						<button on:click={() => deleteCompletedTodo(todo.id)}>삭제</button>
-					</li>
-				{/each}
-			</Basic>
-		</div>
+		<Basic title="Completed Task" className="Completed_Task">
+			{#each $completedTodos as todo}
+				<li class="completedTodos">
+					{todo.text}<span class="datetime">{dateFormater(todo.id)}</span>
+					<button on:click={() => deleteCompletedTodo(todo.id)}>삭제</button>
+				</li>
+			{/each}
+		</Basic>
 	</div>
 
 	<div class="bottom-contents-container">
-		<div class="Referals">
-			<Basic title="Referals">
-				<Basic_Ref refs={referals} />
-			</Basic>
-		</div>
-
-		<div class="Viewers">
-			<Basic title="Viewers" />
-		</div>
-
-		<div class="Members">
-			<Basic title="Members">
-				<Basic_User users={users_member} />
-			</Basic>
-		</div>
+		<Basic title="Referals" className="Referals">
+			<Basic_Ref refs={referals} />
+		</Basic>
+		<Basic title="Viewers" className="Viewers" />
+		<Basic title="Members" className="Members">
+			<Basic_User users={users_member} />
+		</Basic>
 	</div>
 </div>
 
 <style lang="scss">
 	@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 
-	@mixin button-style {
-		cursor: pointer;
-		padding: 5px 10px;
-		border: none;
-		background-color: #007bff;
-		color: white;
-		border-radius: 5px;
-		&:hover {
-			background-color: #0056b3;
-		}
-	}
-	@mixin todo-style {
-		font-size: medium;
-		padding: 5px;
-	}
 	.contents {
 		flex-grow: 1;
 		height: 100%;
@@ -228,66 +202,26 @@
 		padding-bottom: 1%;
 	}
 	.middle-contents-container {
-		@mixin contents-style {
-			flex: 1;
-			border-radius: 10px;
-			background-color: white;
-			overflow: scroll;
-		}
 		display: flex;
 		height: 42%;
 		justify-content: space-between;
 		gap: 0 2%;
-		.Todo_List {
-			@include contents-style();
-			.todos {
-				@include todo-style;
-			}
-			input {
-				margin: 10px;
-				padding: 5px;
-				width: 70%;
-			}
-			button {
-				@include button-style;
-			}
-		}
-		.Completed_Task {
-			@include contents-style();
-			.todos {
-				@include todo-style;
-				text-decoration: line-through;
-				.datetime {
-					padding-left: 30px;
-				}
-			}
-			button {
-				@include button-style;
-			}
-		}
 	}
 
 	.bottom-contents-container {
-		@mixin contents-style($width: 23.5%) {
-			border-radius: 10px;
-			height: 84%;
-			width: $width;
-			overflow: scroll;
-			background-color: white;
-		}
 		height: 28%;
 		display: flex;
 		padding-top: 2%;
 		justify-content: space-between;
 		gap: 2%;
-		.Referals {
-			@include contents-style($width: 30%);
+	}
+	.completedTodos {
+		text-decoration: line-through;
+		.datetime {
+			padding-left: 50px;
 		}
-		.Viewers {
-			@include contents-style($width: 42.5%);
-		}
-		.Members {
-			@include contents-style();
-		}
+	}
+	.todos {
+		margin: 10px;
 	}
 </style>

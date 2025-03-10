@@ -12,10 +12,12 @@
 </div>
 
 <style lang="scss">
-	.sns {
-		display: flex;
-		justify-content: space-between;
-		font-size: medium;
-		overflow: scroll;
+	.sns-list {
+		height: inherit;
+		.sns {
+			display: flex;
+			justify-content: space-between;
+			font-size: medium;
+		}
 	}
 </style>

@@ -14,7 +14,7 @@
 <style lang="scss">
 	.user-list {
 		width: 23.5%;
-		height: 100%;
+		height: inherit;
 		border-radius: 10px;
 		background-color: white;
 		padding: 10px;
