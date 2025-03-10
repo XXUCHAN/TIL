@@ -33,4 +33,31 @@
 			color: blue;
 		}
 	}
+	@media (max-width: 855px) {
+		.menu-item {
+			text-decoration: none;
+			display: flex;
+			align-items: center;
+			background-color: white;
+			border: none;
+			cursor: pointer;
+			color: rgb(145, 144, 144);
+			width: 100%;
+			height: 40px;
+			border-radius: 5px;
+			transition: 0.3s;
+			font-size: medium;
+			.img {
+				height: 30px;
+				width: 30px;
+			}
+			.text {
+				visibility: hidden;
+			}
+			&:hover {
+				background: rgb(198, 213, 245);
+				color: blue;
+			}
+		}
+	}
 </style>

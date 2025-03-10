@@ -34,9 +34,27 @@
 		}
 		.main-title {
 			padding: 30px;
-			text-align: center;
+
 			color: blue;
 			font-weight: bold;
+		}
+	}
+	@media (max-width: 855px) {
+		.sidebar {
+			width: 12%;
+			height: 100vh;
+			background-color: white;
+			display: flex;
+			flex-direction: column;
+
+			.menu {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+			.main-title {
+				visibility: hidden;
+			}
 		}
 	}
 </style>

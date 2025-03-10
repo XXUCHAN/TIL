@@ -19,10 +19,22 @@
 		&:hover {
 			background-color: #0056b3;
 		}
+		@media (max-width: 880px) {
+			cursor: pointer;
+			font-size: small;
+			padding: 1px 2px;
+			border: none;
+			background-color: #0056b3;
+			color: white;
+			border-radius: 5px;
+			&:hover {
+				background-color: #0056b3;
+			}
+		}
 	}
+
 	@mixin contents-style($height: 90%, $width: 23.5%) {
 		border-radius: 10px;
-
 		height: $height;
 		width: $width;
 	}
@@ -37,7 +49,6 @@
 	}
 
 	.basic-container {
-		overflow: scroll;
 		width: 50%;
 		height: auto;
 		padding: 20px;
@@ -70,6 +81,13 @@
 		}
 		:global(button) {
 			@include button-style;
+		}
+		@media (max-width: 880px) {
+			:global(input) {
+				margin: 5px;
+				padding: 0px;
+				width: 70%;
+			}
 		}
 	}
 

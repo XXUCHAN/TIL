@@ -123,7 +123,7 @@
 
 <div class="contents">
 	<div class="page-title">
-		<strong>Dashboard</strong>
+		<strong>Todo List</strong>
 	</div>
 
 	<div class="top-contents-container">
@@ -220,8 +220,20 @@
 		.datetime {
 			padding-left: 50px;
 		}
+		@media (max-width: 880px) {
+			display: flex;
+			margin: 5px;
+			text-decoration: line-through;
+			.datetime {
+				padding-left: 50px;
+			}
+		}
 	}
 	.todos {
 		margin: 10px;
+		@media (max-width: 880px) {
+			margin: 10px;
+			display: flex;
+		}
 	}
 </style>

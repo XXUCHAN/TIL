@@ -36,6 +36,24 @@
 			name: 'daniel',
 			imgSrc:
 				'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTofiTkhCGQWTYpkk3-17Hs7xRUd6uXsmqsAQ&s'
+		},
+		{ name: 'kim', imgSrc: 'https://avatars.githubusercontent.com/u/141641630?v=4' },
+		{
+			name: 'cho',
+			imgSrc:
+				'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTofiTkhCGQWTYpkk3-17Hs7xRUd6uXsmqsAQ&s'
+		},
+		{ name: 'choi', imgSrc: 'https://avatars.githubusercontent.com/u/141641630?v=4' },
+		{
+			name: 'leo',
+			imgSrc:
+				'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTofiTkhCGQWTYpkk3-17Hs7xRUd6uXsmqsAQ&s'
+		},
+		{ name: 'yang', imgSrc: 'https://avatars.githubusercontent.com/u/141641630?v=4' },
+		{
+			name: 'ba',
+			imgSrc:
+				'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTofiTkhCGQWTYpkk3-17Hs7xRUd6uXsmqsAQ&s'
 		}
 	];
 	const users_member = [

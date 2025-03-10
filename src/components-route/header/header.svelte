@@ -22,6 +22,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+		align-items: center;
 		.info_container {
 			display: flex;
 			align-items: center;
